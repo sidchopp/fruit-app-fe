@@ -1,4 +1,5 @@
 import { Footer, FruitsList, Header } from "../components";
+import { FruitsJar } from "../components/FruitsJar";
 import { useFruits } from "../hooks";
 
 const Home = () => {
@@ -15,7 +16,7 @@ const Home = () => {
           <FruitsList fruits={fruits} />
         </div>
         <div className="lg:w-1/2 flex-1 border border-gray-300 rounded-lg p-4 bg-gray-100">
-          FruitJar
+          <FruitsJar />
         </div>
       </div>
       <Footer />

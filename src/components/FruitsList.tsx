@@ -6,7 +6,7 @@ interface FruitsListProps {
 const FruitsList: React.FC<FruitsListProps> = ({ fruits }) => {
   return (
     <>
-      <h2>Fruit List</h2>
+      <span className="text-lg font-semibold mb-4">Group by</span>
       <ul>
         {fruits.map((fruit: Fruit) => (
           <li key={fruit.id}>
