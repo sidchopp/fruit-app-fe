@@ -1,9 +1,10 @@
-import React from "react";
+import { FC } from "react";
 
 interface FruitsListProps {
   fruits: Fruit[];
+  onAddToJar: (fruit: Fruit) => void;
 }
-const FruitsList: React.FC<FruitsListProps> = ({ fruits }) => {
+const FruitsList: FC<FruitsListProps> = ({ fruits, onAddToJar }) => {
   return (
     <>
       <span className="text-lg font-semibold mb-4">Group by</span>

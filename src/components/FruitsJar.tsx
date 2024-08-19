@@ -1,6 +1,11 @@
-import React from "react";
+import { FC } from "react";
 
-export const FruitsJar = () => {
+interface FruitJarProps {
+  jarFruits: Fruit[];
+  onRemoveFruit: (id: number) => void;
+}
+
+const FruitsJar: FC<FruitJarProps> = ({ jarFruits, onRemoveFruit }) => {
   return (
     <>
       <h2 className="text-lg font-semibold mb-4">Fruit Jar</h2>
@@ -8,3 +13,5 @@ export const FruitsJar = () => {
     </>
   );
 };
+
+export { FruitsJar };

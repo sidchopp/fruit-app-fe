@@ -1,22 +1,35 @@
+import { useState } from "react";
 import { Footer, FruitsList, Header } from "../components";
 import { FruitsJar } from "../components/FruitsJar";
 import { useFruits } from "../hooks";
 
 const Home = () => {
+  const [jarFruits, setJarFruits] = useState<Fruit[]>([]);
   const { fruits, loading, error } = useFruits();
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
+
+  const handleAddToJar = (fruit: Fruit) => {
+    setJarFruits((prevFruits) => [...prevFruits, fruit]);
+  };
+
+  const handleRemoveFromJar = (id: number) => {
+    setJarFruits((prevFruits) => prevFruits.filter((fruit) => fruit.id !== id));
+  };
 
   return (
     <>
       <Header />
       <div className="flex flex-col lg:flex-row p-5 gap-5">
         <div className="lg:w-1/2 flex-1 border border-gray-300 rounded-lg p-4 bg-gray-100">
-          <FruitsList fruits={fruits} />
+          <FruitsList fruits={fruits} onAddToJar={handleAddToJar} />
         </div>
         <div className="lg:w-1/2 flex-1 border border-gray-300 rounded-lg p-4 bg-gray-100">
-          <FruitsJar />
+          <FruitsJar
+            jarFruits={jarFruits}
+            onRemoveFruit={handleRemoveFromJar}
+          />
         </div>
       </div>
       <Footer />
