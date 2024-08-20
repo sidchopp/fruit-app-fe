@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent } from "react";
+import { FC, ChangeEvent, Dispatch, SetStateAction } from "react";
 import {
   Disclosure,
   DisclosureButton,
@@ -9,6 +9,8 @@ import { ChevronDownIcon } from "@heroicons/react/20/solid";
 interface FruitsListProps {
   fruits: Fruit[];
   onAddToJar: (fruit: Fruit) => void;
+  groupBy: GroupByOption;
+  setGroupBy: Dispatch<SetStateAction<GroupByOption>>;
 }
 
 const groupFruitsBy = (fruits: Fruit[], key: keyof Fruit) => {
@@ -25,9 +27,12 @@ const groupFruitsBy = (fruits: Fruit[], key: keyof Fruit) => {
   }, {} as { [key: string]: Fruit[] });
 };
 
-const FruitsList: FC<FruitsListProps> = ({ fruits, onAddToJar }) => {
-  const [groupBy, setGroupBy] = useState<GroupByOption>("none");
-
+const FruitsList: FC<FruitsListProps> = ({
+  fruits,
+  onAddToJar,
+  groupBy,
+  setGroupBy,
+}) => {
   const handleGroupByChange = (event: ChangeEvent<HTMLSelectElement>) => {
     setGroupBy(event.target.value as GroupByOption);
   };
