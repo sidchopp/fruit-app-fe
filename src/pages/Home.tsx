@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { Footer, FruitsList, Header } from "../components";
-import { FruitsJar } from "../components/FruitsJar";
+import { Header, FruitsList, FruitsJar, Footer } from "../components";
 import { useFruits } from "../hooks";
 
 const Home = () => {
