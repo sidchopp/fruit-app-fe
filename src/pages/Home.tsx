@@ -22,10 +22,10 @@ const Home = () => {
     <>
       <Header />
       <div className="flex flex-col lg:flex-row p-5 gap-5">
-        <div className="lg:w-1/2 flex-1 border border-gray-300 rounded-lg p-4 bg-gray-100">
+        <div className="lg:w-1/2 flex-1 border border-gray-300 rounded-lg p-8 bg-gray-100">
           <FruitsList fruits={fruits} onAddToJar={handleAddToJar} />
         </div>
-        <div className="lg:w-1/2 flex-1 border border-gray-300 rounded-lg p-4 bg-gray-100">
+        <div className="lg:w-1/2 flex-1 border border-gray-300 rounded-lg p-8 bg-gray-100">
           <FruitsJar
             jarFruits={jarFruits}
             onRemoveFruit={handleRemoveFromJar}

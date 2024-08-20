@@ -1,3 +1,5 @@
+type GroupByOption = "none" | "family" | "order" | "genus";
+
 interface Nutrition {
   calories: number;
   fat: number;
@@ -19,4 +21,11 @@ interface UseFruitsResult {
   fruits: Fruit[];
   loading: boolean;
   error: string | null;
+}
+
+interface GroupByOptions {
+  NONE: GroupByOption;
+  FAMILY: GroupByOption;
+  ORDER: GroupByOption;
+  GENUS: GroupByOption;
 }
